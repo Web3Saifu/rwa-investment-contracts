@@ -1,0 +1,7 @@
+bundle/=src/
+forge-std/=lib/mc/lib/forge-std/src/
+@openzeppelin/contracts/=lib/mc/lib/ucs-contracts/lib/openzeppelin-contracts/contracts/
+@ucs.mc/=lib/mc/lib/ucs-contracts/src/
+@mc-devkit/=lib/mc/src/devkit/
+@mc-std/=lib/mc/src/std/
+@chainlink/=lib/chainlink-evm/contracts/
