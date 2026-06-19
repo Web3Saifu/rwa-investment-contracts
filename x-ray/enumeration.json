@@ -1,0 +1,17 @@
+{
+    "source_files":  31,
+    "source_lines":  9574,
+    "test_files":  24,
+    "test_functions":  51,
+    "stateless_fuzz":  0,
+    "foundry_invariant":  0,
+    "contracts":  119,
+    "libraries":  12,
+    "interfaces":  7,
+    "echidna":  "0:0",
+    "medusa":  "0:0",
+    "certora":  "0:0",
+    "halmos":  "0:0",
+    "hevm":  "0:0",
+    "fork":  0
+}

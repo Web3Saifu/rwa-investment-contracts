@@ -1,0 +1,31 @@
+{
+  "title": "RWA Investment Architecture",
+  "nodes": [
+    {"id": "investor", "label": "Investor", "subtitle": "USDT / NFT holder", "type": "actor", "row": 0},
+    {"id": "safe", "label": "Safe Multisig", "subtitle": "Owner", "type": "actor", "row": 0},
+    {"id": "admins", "label": "Admins", "subtitle": "Whitelist ops", "type": "actor", "row": 0},
+    {"id": "minters", "label": "Minters", "subtitle": "JPY credit", "type": "actor", "row": 0},
+    {"id": "forwarder", "label": "Chainlink Forwarder", "subtitle": "Automation caller", "type": "external", "row": 0},
+    {"id": "investment", "label": "Investment Proxy", "subtitle": "MC facets", "type": "protocol", "row": 1},
+    {"id": "nft", "label": "InvestmentNFT", "subtitle": "ERC721 per product", "type": "protocol", "row": 2},
+    {"id": "usdt", "label": "USDT", "subtitle": "ERC20 settlement", "type": "external", "row": 2},
+    {"id": "sbt", "label": "Tier SBTs", "subtitle": "ERC721/ERC1155", "type": "external", "row": 2},
+    {"id": "automation", "label": "Automation", "subtitle": "Upkeep router", "type": "protocol", "row": 1}
+  ],
+  "edges": [
+    {"from": "investor", "to": "investment", "label": "invest/claim"},
+    {"from": "safe", "to": "investment", "label": "roles"},
+    {"from": "admins", "to": "investment", "label": "operate"},
+    {"from": "minters", "to": "investment", "label": "mint credit"},
+    {"from": "forwarder", "to": "automation", "label": "upkeep"},
+    {"from": "automation", "to": "investment", "label": "settle"},
+    {"from": "investment", "to": "nft", "label": "mint/burn"},
+    {"from": "investment", "to": "usdt", "label": "transfer"},
+    {"from": "investment", "to": "sbt", "label": "eligibility"}
+  ],
+  "groups": [
+    {"label": "Actors", "nodes": ["investor", "safe", "admins", "minters", "forwarder"]},
+    {"label": "Protocol", "nodes": ["investment", "automation"]},
+    {"label": "Assets / Dependencies", "nodes": ["nft", "usdt", "sbt"]}
+  ]
+}

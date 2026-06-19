@@ -10,6 +10,8 @@ import "bundle/investment/interfaces/IInvestment.sol";
  * @title InvestmentNFT
  * @dev NFT contract to manage investment units
  */
+
+
 contract InvestmentNFT is IInvestmentNFT, ERC721, Ownable {
     // Token ID counter (managed with uint256 instead of Counters library)
     uint256 public tokenIdCounter;

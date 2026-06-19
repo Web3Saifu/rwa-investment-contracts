@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="640" viewBox="0 0 1150 640">
+  <style>
+    .bg{fill:#f8fafc}.group{fill:#ffffff;stroke:#cbd5e1;stroke-width:1.5}.node{fill:#ffffff;stroke:#334155;stroke-width:1.5}.protocol{stroke:#2563eb}.external{stroke:#d97706}.actor{stroke:#475569}.title{font:700 24px Arial;fill:#0f172a}.label{font:700 15px Arial;fill:#0f172a}.sub{font:12px Arial;fill:#475569}.edge{stroke:#334155;stroke-width:1.6;fill:none;marker-end:url(#arrow)}.elabel{font:12px Arial;fill:#1e293b}
+  </style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <rect class="bg" x="0" y="0" width="1150" height="640"/>
+  <text class="title" x="32" y="40">RWA Investment Architecture</text>
+  <rect class="group" x="30" y="70" width="1090" height="125" rx="8"/><text class="sub" x="46" y="94">Actors</text>
+  <rect class="group" x="210" y="250" width="730" height="120" rx="8"/><text class="sub" x="226" y="274">Protocol</text>
+  <rect class="group" x="180" y="445" width="790" height="120" rx="8"/><text class="sub" x="196" y="469">Assets / Dependencies</text>
+  <g><rect class="node actor" x="60" y="115" width="150" height="54" rx="20"/><text class="label" x="95" y="138">Investor</text><text class="sub" x="86" y="157">USDT / NFT holder</text></g>
+  <g><rect class="node actor" x="260" y="115" width="150" height="54" rx="20"/><text class="label" x="290" y="138">Safe Multisig</text><text class="sub" x="318" y="157">Owner</text></g>
+  <g><rect class="node actor" x="460" y="115" width="150" height="54" rx="20"/><text class="label" x="510" y="138">Admins</text><text class="sub" x="500" y="157">Whitelist ops</text></g>
+  <g><rect class="node actor" x="660" y="115" width="150" height="54" rx="20"/><text class="label" x="708" y="138">Minters</text><text class="sub" x="705" y="157">JPY credit</text></g>
+  <g><rect class="node external" x="860" y="115" width="210" height="54" rx="20"/><text class="label" x="900" y="138">Chainlink Forwarder</text><text class="sub" x="918" y="157">Automation caller</text></g>
+  <g><rect class="node protocol" x="340" y="292" width="210" height="58" rx="8"/><text class="label" x="386" y="316">Investment Proxy</text><text class="sub" x="404" y="335">MC facets</text></g>
+  <g><rect class="node protocol" x="650" y="292" width="170" height="58" rx="8"/><text class="label" x="690" y="316">Automation</text><text class="sub" x="694" y="335">Upkeep router</text></g>
+  <g><rect class="node protocol" x="210" y="492" width="180" height="58" rx="8"/><text class="label" x="256" y="516">InvestmentNFT</text><text class="sub" x="250" y="535">ERC721 per product</text></g>
+  <g><rect class="node external" x="490" y="492" width="150" height="58" rx="8"/><text class="label" x="545" y="516">USDT</text><text class="sub" x="518" y="535">ERC20 settlement</text></g>
+  <g><rect class="node external" x="740" y="492" width="160" height="58" rx="8"/><text class="label" x="790" y="516">Tier SBTs</text><text class="sub" x="776" y="535">ERC721/ERC1155</text></g>
+  <path class="edge" d="M135 169 C170 230,270 286,340 315"/><text class="elabel" x="206" y="240">invest/claim</text>
+  <path class="edge" d="M335 169 C350 220,390 260,425 292"/><text class="elabel" x="355" y="230">roles</text>
+  <path class="edge" d="M535 169 C520 220,485 260,465 292"/><text class="elabel" x="506" y="230">operate</text>
+  <path class="edge" d="M735 169 C680 225,570 275,520 300"/><text class="elabel" x="622" y="240">mint credit</text>
+  <path class="edge" d="M965 169 C910 230,825 270,800 300"/><text class="elabel" x="870" y="238">upkeep</text>
+  <path class="edge" d="M650 321 L550 321"/><text class="elabel" x="580" y="310">settle</text>
+  <path class="edge" d="M410 350 C365 400,325 450,305 492"/><text class="elabel" x="335" y="430">mint/burn</text>
+  <path class="edge" d="M470 350 C505 405,545 450,560 492"/><text class="elabel" x="515" y="430">transfer</text>
+  <path class="edge" d="M535 345 C620 400,745 450,805 492"/><text class="elabel" x="665" y="430">eligibility</text>
+</svg>
