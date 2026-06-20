@@ -66,7 +66,7 @@ escrow recovery
 | Aspect | Detail |
 |--------|--------|
 | Visibility | external, nonReentrant |
-| Caller | Current NFT owner |
+| Caller | Current NFT owner |  // @audit what if transfer the nft the scrow who will get?
 | Parameters | `productId` (user-controlled), `tokenId` (user-controlled), `distributionIndex` (user-controlled) |
 | Call chain | `Claim.claimYield()` -> `InvestmentNFT.getInvestmentAmount()` / `IERC721.ownerOf()` -> `UsdtTransferLib.tryTransfer()` |
 | State modified | `escrow.unclaimedYield[productId][tokenId][distributionIndex]` |
@@ -80,7 +80,9 @@ escrow recovery
 | Visibility | external, nonReentrant |
 | Caller | Current NFT owner |
 | Parameters | `productId` (user-controlled), `tokenId` (user-controlled) |
-| Call chain | `Claim.claimPrincipal()` -> `InvestmentNFT.getInvestmentAmount()` / `IERC721.ownerOf()` -> `UsdtTransferLib.tryTransfer()` -> `InvestmentNFT.burn()` |
+| Call chain | `Claim.claimPrincipal()` -> `InvestmentNFT.getInvestmentAmount()` / `IERC721.ownerOf()` -> `UsdtTransferLib.tryTransfer()` ->  // @audit  //*Done  ownerOf(tokenId)----Questions: Principal escrow created -   NFT sold   -- New owner claims principal and escrow who will be owner?`InvestmentNFT.burn()` |  // @audit //*Done Does NFT burn make remaining yield
+permanently unclaimable?
+
 | State modified | `escrow.unclaimedPrincipal`, related `escrow.unclaimedYield` slots, NFT burn state |
 | Value flow | USDT: Investment proxy -> current NFT owner; NFT burned |
 | Reentrancy guard | yes |
@@ -244,4 +246,3 @@ escrow recovery
 ## View / Read Surface
 
 Getter functions are public/external view and include product lists, active product lists, admin list, tier registry reads, simulated yields, distribution dates, unclaimed balances, and token claimable status. They do not directly move value but are important for Automation and frontend/off-chain accounting.
-

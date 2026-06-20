@@ -168,3 +168,43 @@ Bob
 3	Lifecycle accounting invariants	🔥 Very High
 4	Distribution/Maturity cursor logic	🔥 High
 5	Current-holder entitlement model	⚠️ Hig
+
+
+
+
+
+
+
+
+আরও powerful question:
+
+Protocol বলছে:
+
+NFT = Investment Position
+
+Hacker ভাবে:
+
+NFT ছাড়া position পাওয়া যায়?
+
+অথবা
+
+Position ছাড়া NFT পাওয়া যায়?
+
+
+
+
+
+
+
+
+Critical permutation 5: stale escrow after ownership transfer
+escrow created
+NFT transferred
+new owner claims
+
+Question:
+
+escrow ownership follow করে?
+নাকি old owner-এর economic right silently shift হয়ে যায়?
+
+যদি protocol intention different হয়, এখানেই finding.
