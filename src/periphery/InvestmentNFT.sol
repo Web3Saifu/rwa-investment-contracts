@@ -399,6 +399,7 @@ contract InvestmentNFTTest is Test {
         }
     }
 
+
     /// @notice Test case for getNFTInfos function when fewer than 50 tokens exist
     function testgetNFTInfos_partial() public {
         // Owner mints 30 NFTs
