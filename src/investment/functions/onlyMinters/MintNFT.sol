@@ -34,7 +34,7 @@ contract MintNFT is ReentrancyGuard, OnlyMintersBase {
             revert IInvestmentErrors.ZeroAddress();
         }
 
-        Schema.Product storage product = Storage.ProductsState().products[productId];
+        Schema.Product storage product = Storage.ProductsState().products[productId];//!
 
         if (product.productId == 0) {
             revert IInvestmentErrors.ProductNotFound();
@@ -46,14 +46,14 @@ contract MintNFT is ReentrancyGuard, OnlyMintersBase {
             revert IInvestmentErrors.MaturedProduct();
         }
         // Check if operation start date is not passed
-        if (block.timestamp >= product.operationStartDate) {
+        if (block.timestamp >= product.operationStartDate) { // @audit why stop minting after operation start date?
             revert IInvestmentErrors.OperationStartDatePassed();
         }
 
         // Calculate investment amount
-        uint256 investmentAmount = product.minInvestment * unitCount;
+        uint256 investmentAmount = product.minInvestment * unitCount;//!
 
-        if (product.raisedAmount + investmentAmount > product.offeringAmount) {
+        if (product.raisedAmount + investmentAmount > product.offeringAmount) {//check offering cap
             revert IInvestmentErrors.ExceedOfferingAmount();
         }
 

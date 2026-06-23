@@ -24,10 +24,10 @@ contract Initialize is Initializable {
         address safeMultisigWallet
     ) external initializer {
         // set admins
-        for (uint256 i = 0; i < admins.length; i++) {
+        for (uint256 i = 0; i < admins.length; i++) {  //i<4  and loop wiil stop after 3 loop
             if (admins[i] == address(0)) revert IInvestmentErrors.InvalidAddress();
             for (uint256 j = 0; j < i; j++) {
-                if (admins[j] == admins[i]) revert IInvestmentErrors.AlreadyExistsAdmin();
+                if (admins[j] == admins[i]) revert IInvestmentErrors.AlreadyExistsAdmin();//it's checking from the variable admins that is there the current admin already exists in the list of admins,
             }
             Storage.WhiteListsState().admins.push(admins[i]);
             emit IInvestmentEvents.AdminAdded(admins[i], msg.sender);
@@ -44,8 +44,8 @@ contract Initialize is Initializable {
         if (safeMultisigWallet == address(0)) revert IInvestmentErrors.InvalidAddress();
 
         // set config
-        Storage.ConfigState().USDT_ADDRESS = usdtAddress;
-        Storage.ConfigState().SAFE_MULTISIG_WALLET = safeMultisigWallet;
+        Storage.ConfigState().USDT_ADDRESS = usdtAddress;//!
+        Storage.ConfigState().SAFE_MULTISIG_WALLET = safeMultisigWallet;//!
     }
 }
 
