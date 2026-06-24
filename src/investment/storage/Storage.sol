@@ -34,7 +34,7 @@ library Storage {
     function ProductsState() internal pure returns (Schema.$ProductsState storage ref) {
         bytes32 slot = INVESTMENT_PRODUCTSSTATE;
         assembly {
-            ref.slot := slot
+            ref.slot := slot//ref কে এই storage slot-এর সাথে connect করো।
         }
     }
 
