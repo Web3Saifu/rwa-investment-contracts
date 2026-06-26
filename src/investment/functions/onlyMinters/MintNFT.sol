@@ -29,6 +29,7 @@ contract MintNFT is ReentrancyGuard, OnlyMintersBase {
      * @custom:throws IInvestmentErrors.OperationStartDatePassed If operation start date has passed
      * @custom:throws IInvestmentErrors.ExceedOfferingAmount If the investment would exceed the offering amount
      */
+     
     function mintNFT(uint256 productId, uint256 unitCount, address investor) external nonReentrant onlyMinters {
         if (investor == address(0)) {
             revert IInvestmentErrors.ZeroAddress();
