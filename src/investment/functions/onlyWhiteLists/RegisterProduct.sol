@@ -45,6 +45,7 @@ contract RegisterProduct is OnlyWhiteListsBase {
         if (args.productId == 0) {
             revert IInvestmentErrors.InvalidProductId();
         }
+        
         if (Storage.ProductsState().products[args.productId].productId != 0) {
             revert IInvestmentErrors.ProductAlreadyExists();
         }

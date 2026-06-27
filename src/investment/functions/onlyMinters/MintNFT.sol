@@ -29,13 +29,15 @@ contract MintNFT is ReentrancyGuard, OnlyMintersBase {
      * @custom:throws IInvestmentErrors.OperationStartDatePassed If operation start date has passed
      * @custom:throws IInvestmentErrors.ExceedOfferingAmount If the investment would exceed the offering amount
      */
-     
+
     function mintNFT(uint256 productId, uint256 unitCount, address investor) external nonReentrant onlyMinters {
         if (investor == address(0)) {
             revert IInvestmentErrors.ZeroAddress();
         }
 
+
         Schema.Product storage product = Storage.ProductsState().products[productId];//!
+
 
         if (product.productId == 0) {
             revert IInvestmentErrors.ProductNotFound();
@@ -51,8 +53,11 @@ contract MintNFT is ReentrancyGuard, OnlyMintersBase {
             revert IInvestmentErrors.OperationStartDatePassed();
         }
 
+
         // Calculate investment amount
         uint256 investmentAmount = product.minInvestment * unitCount;//!
+
+
 
         if (product.raisedAmount + investmentAmount > product.offeringAmount) {//check offering cap
             revert IInvestmentErrors.ExceedOfferingAmount();
