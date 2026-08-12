@@ -16,6 +16,7 @@ contract InvestmentNFT is IInvestmentNFT, ERC721, Ownable {
     // Token ID counter (managed with uint256 instead of Counters library)
     uint256 public tokenIdCounter;
 
+
     // Product ID
     uint256 public productId;
 
